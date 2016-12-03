@@ -1,0 +1,18 @@
+template<class T>
+void changeLength2D(T**& a, int oldRows, int copyRows, int copyCloumns, int newRows, int newColumns)
+{
+	if (copyRows > newRows || copyCloumns > newColumns)
+		throw illegalParameterValue("new dimensions are too small");
+	T** temp = new T*[newRows];
+	for (int i = 0; i < newRows; i++)
+		temp[i] = new T[newColumns];
+	for (int i = 0; i < copyRows; i++)
+	{
+		copy(a[i], a[i] + copyCloumns, temp[i]);
+		delete[]a[i];
+	}
+	for (int i = copyRows; i < oldRows; i++)
+		delete[]a[i];
+	delete[]a;
+	a = temp;
+}
