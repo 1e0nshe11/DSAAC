@@ -4,5 +4,9 @@ no, Function signatures include the function name and parameters.
 ex 1.9
 1)int
 2)float
-3)all not, ambiguous sentence
-4)float
+3)The signature of the function invocation does not agree with that of either of the abc functions. 
+  Since type conversions from both float to int and int to float are possible, 
+  C++ cannot resolve which function to use and gives a compile-time error.
+4)The actual parameters are of type double.
+  C++ cannot resolve which function to use and gives a compile-time error as type conversions 
+  from double to both int and float are possible. 
